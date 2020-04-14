@@ -5,8 +5,8 @@ const answers_ul = document.createElement('ul');
 const allTimeAnswers_ul = document.createElement('ul');
 
 
-const allTimeAnwersArray = localStorage.getItem('allTimeAnswersArrayKey');
-const parsed_AllTimeAnswersArray = JSON.parse(allTimeAnwersArray);
+const allTimeAnswersArray = localStorage.getItem('allTimeAnswersArrayKey');
+const parsed_AllTimeAnswersArray = JSON.parse(allTimeAnswersArray);
 
 
 const answersArray = localStorage.getItem('answersArrayKey');
