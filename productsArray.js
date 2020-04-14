@@ -97,6 +97,6 @@ export const productsArray = [
     {
         id: 19,
         name: 'Baby Sweeper',
-        image: 'https://github.com/alchemycodelab/fsjs-foundations-march-2020/blob/master/curriculum/class-11/lab/assets/sweep.png?raw=true' 
+        image: 'https://github.com/alchemycodelab/fsjs-foundations-march-2020/blob/master/curriculum/class-11/lab/assets/sweep.png?raw=true'  
     }
 ];

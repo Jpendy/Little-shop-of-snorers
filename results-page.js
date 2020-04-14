@@ -1,8 +1,9 @@
-
-
 const mainSection = document.getElementById('main-section');
 const answers_ul = document.createElement('ul');
 const allTimeAnswers_ul = document.createElement('ul');
+
+answers_ul.style.listStyle = 'none';
+allTimeAnswers_ul.style.listStyle = 'none';
 
 
 const allTimeAnswersArray = localStorage.getItem('allTimeAnswersArrayKey');
@@ -18,35 +19,38 @@ parsed_AnswersArray.forEach((product) => {
     const img = document.createElement('img');
     const timesSeen = document.createElement('h2');
     const timesPicked = document.createElement('h2');
+    const id = document.createElement('h2');
 
-    timesSeen.textContent = product.timesSeen;
-    timesPicked.textContent = product.timesPicked;
+    id.textContent = product.id;
+    img.src = product.image;
+    timesSeen.textContent = `Number of Times Seen: ${product.timesSeen}`;
+    timesPicked.textContent = `Number of Times Picked: ${product.timesPicked}`;
 
     img.classList.add('answers-image');
     li.classList.add('answers-text');
 
-    li.append(img, timesSeen, timesPicked);
+    li.append(img, id, timesSeen, timesPicked,);
     answers_ul.appendChild(li);
 });
+
 
 parsed_AllTimeAnswersArray.forEach((product) => {
     const li = document.createElement('li');
     const img = document.createElement('img');
     const timesSeen = document.createElement('h2');
     const timesPicked = document.createElement('h2');
+    const id = document.createElement('h2');
 
-    
-    timesSeen.textContent = product.timesSeen;
-    timesPicked.textContent = product.timesPicked;
+    id.textContent = product.id;
+    timesSeen.textContent = `Number of Times Seen: ${product.timesSeen}`;
+    timesPicked.textContent = `Number of Times Picked: ${product.timesPicked}`;
 
     img.classList.add('answers-image');
     li.classList.add('answers-text');
 
-    li.append(img, timesSeen, timesPicked);
+    li.append(img, timesSeen, timesPicked, id);
     allTimeAnswers_ul.appendChild(li);
 });
-
-
 
 
 const labelsArray = [];
@@ -54,7 +58,7 @@ const dataArray = [];
 
 
 parsed_AnswersArray.forEach((product) => {
-    const label = product.name;
+    const label = product.id;
     const dataPoint = product.timesPicked;
     labelsArray.push(label);
     dataArray.push(dataPoint);
