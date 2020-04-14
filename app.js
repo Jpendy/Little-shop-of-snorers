@@ -31,6 +31,26 @@ function chooseRandomProduct(array) {
 
 
 
+
+
+
+
+
+
+let answersArray = [];
+let allTimeAnswersArray = [];
+
+
+
+const stringifiedAnswersArray = JSON.stringify(answersArray);
+localStorage.setItem('answersArrayKey', stringifiedAnswersArray);
+
+const strinifiedAllTimeAnswersArray = JSON.stringify(allTimeAnswersArray);
+localStorage.setItem('allTimeAnswersArrayKey', strinifiedAllTimeAnswersArray); 
+
+
+
+
 // const arrayAnswers = [ 
 //     {
 //     id: ,
