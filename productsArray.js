@@ -1,4 +1,4 @@
-export const products = [
+export const productsArray = [
     {
         id: 0,
         name: 'R2D2 Bag',
