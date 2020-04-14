@@ -76,13 +76,46 @@ localStorage.setItem('allTimeAnswersArrayKey', strinifiedAllTimeAnswersArray);
 
 
 
-// function findById(pokemonArray, idtoFind) {
+function findById(pokemonArray, idtoFind) {
     
-//     for (let i = 0; i < pokemonArray.length; i++) {
-//         const array = pokemonArray[i];
+    for (let i = 0; i < pokemonArray.length; i++) {
+        const array = pokemonArray[i];
 
-//         if (array.id === idtoFind) {
-//             return array;
-//         }
-//     }
-// }
+        if (array.id === idtoFind) {
+            return array;
+        }
+    }
+}
+
+
+
+
+
+function incrementTimesSeen(id, votes) {
+    let temp = findById(votes, id);
+    if (!temp) {
+        addInitialVoteItem(id, votes);
+        temp = findById(id, votes);
+    }
+    temp.timesSeen++;
+}
+
+
+function incrementTimesPicked(id, votes) {
+    let temp = findById(votes, id);
+    if (!temp) {
+        addInitialVoteItem(id, votes);
+        temp - findById(id, votes);
+    }
+    temp.timesPicked++;
+}
+
+
+function addInitialVoteItem(id, votes) {
+    const voteItem = {
+        id: id,
+        timesSeen: 0,
+        timesPicked: 0
+    };
+    votes.push(voteItem);
+}
