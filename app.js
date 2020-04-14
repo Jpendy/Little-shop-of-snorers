@@ -3,11 +3,14 @@ import { productsArray } from './productsArray.js';
 const image1 = document.getElementById('image-1');
 const image2 = document.getElementById('image-2');
 const image3 = document.getElementById('image-3');
+const submitButton = document.getElementById('submit-button');
 
 
 const randomProduct1 = chooseRandomProduct(productsArray);
 let randomProduct2 = chooseRandomProduct(productsArray);
 let randomProduct3 = chooseRandomProduct(productsArray);
+
+let gameCounter = 25;
 
 
 while (randomProduct1 === randomProduct2) {
@@ -29,16 +32,29 @@ function chooseRandomProduct(array) {
 }
 
 
+submitButton.addEventListener('click', () => {
+    const productPick = document.querySelectorAll('input[type=radio]:checked');
+
+    productPickValue = productPick.value;
+
+    const  = productPick.id;
 
 
 
 
-
+    gameCounter-- ;
+    if (gameCounter === 0) {
+        location.href = 'results-page.html';
+    }
+});
 
 
 
 let answersArray = [];
 let allTimeAnswersArray = [];
+
+
+
 
 
 
