@@ -1,6 +1,16 @@
 const mainSection = document.getElementById('main-section');
 const answers_ul = document.createElement('ul');
 const allTimeAnswers_ul = document.createElement('ul');
+const answersHeader = document.createElement('h1');
+const allTimeAnswersHeader = document.createElement('h1');
+const resetButton = document.getElementById('reset-button');
+
+
+answersHeader.textContent = 'Product Choice Stats';
+answersHeader.classList.add('header-class');
+
+allTimeAnswersHeader.textContent = 'All-Time Product Choice Stats';
+allTimeAnswersHeader.classList.add('header-class');
 
 answers_ul.style.listStyle = 'none';
 allTimeAnswers_ul.style.listStyle = 'none';
@@ -19,17 +29,18 @@ parsed_AnswersArray.forEach((product) => {
     const img = document.createElement('img');
     const timesSeen = document.createElement('h2');
     const timesPicked = document.createElement('h2');
-    const id = document.createElement('h2');
+    const name = document.createElement('h1');
 
-    id.textContent = product.id;
+    name.textContent = product.name;
     img.src = product.image;
+    img.style.float = 'left';
     timesSeen.textContent = `Number of Times Seen: ${product.timesSeen}`;
     timesPicked.textContent = `Number of Times Picked: ${product.timesPicked}`;
 
     img.classList.add('answers-image');
     li.classList.add('answers-text');
 
-    li.append(img, id, timesSeen, timesPicked,);
+    li.append(img, name, timesSeen, timesPicked,);
     answers_ul.appendChild(li);
 });
 
@@ -39,16 +50,20 @@ parsed_AllTimeAnswersArray.forEach((product) => {
     const img = document.createElement('img');
     const timesSeen = document.createElement('h2');
     const timesPicked = document.createElement('h2');
-    const id = document.createElement('h2');
+    const name = document.createElement('h1');
 
-    id.textContent = product.id;
+    name.textContent = product.name;
+    img.src = product.image;
+    img.style.float = 'left';
+
+
     timesSeen.textContent = `Number of Times Seen: ${product.timesSeen}`;
     timesPicked.textContent = `Number of Times Picked: ${product.timesPicked}`;
 
     img.classList.add('answers-image');
     li.classList.add('answers-text');
 
-    li.append(img, timesSeen, timesPicked, id);
+    li.append(img, name, timesSeen, timesPicked);
     allTimeAnswers_ul.appendChild(li);
 });
 
@@ -58,7 +73,7 @@ const dataArray = [];
 
 
 parsed_AnswersArray.forEach((product) => {
-    const label = product.id;
+    const label = product.name;
     const dataPoint = product.timesPicked;
     labelsArray.push(label);
     dataArray.push(dataPoint);
@@ -102,4 +117,13 @@ new Chart(ctx, {
     }
 });
 
-mainSection.append(answers_ul, allTimeAnswers_ul);
+resetButton.addEventListener('click', () => {
+    let emptyArray = [];
+    localStorage.setItem('answersArrayKey', emptyArray);
+    localStorage.setItem('allTimeAnswersArrayKey', allTimeAnswersArray);
+    answers_ul.textContent = null;
+    location.href = 'index.html';
+
+});
+
+mainSection.append(answersHeader, answers_ul, allTimeAnswersHeader, allTimeAnswers_ul);

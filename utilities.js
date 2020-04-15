@@ -34,9 +34,10 @@ export function incrementTimesPicked(id, array) {
 }
 
 export function addInitialVoteItem(id, array) {
-    const image = findById(id, productsArray);
+    const product = findById(id, productsArray);
     const voteItem = {
-        image: image.image,
+        image: product.image,
+        name: product.name,
         id: id,
         timesSeen: 0,
         timesPicked: 0

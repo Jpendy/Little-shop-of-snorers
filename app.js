@@ -25,6 +25,7 @@ submitButton.addEventListener('click', () => {
     const productPick = document.querySelector('input[type=radio]:checked');
     const allRadios = document.querySelectorAll('input');
 
+    //this part increments product choices
     allRadios.forEach((radio) => {
         incrementTimesSeen(Number(radio.value), answersArray);
     });
@@ -32,6 +33,12 @@ submitButton.addEventListener('click', () => {
     incrementTimesPicked(Number(productPick.value), answersArray);
 
 
+    //this part increments product choices for all time
+    allRadios.forEach((radio) => {
+        incrementTimesSeen(Number(radio.value), allTimeAnswersArray);
+    });
+
+    incrementTimesPicked(Number(productPick.value), allTimeAnswersArray);
 
     const stringifiedAnswersArray = JSON.stringify(answersArray);
     localStorage.setItem('answersArrayKey', stringifiedAnswersArray);
@@ -53,15 +60,18 @@ function renderProducts() {
     const randomProduct1 = chooseRandomProduct(productsArray);
     let randomProduct2 = chooseRandomProduct(productsArray);
     let randomProduct3 = chooseRandomProduct(productsArray);
+
     radioButton1.value = randomProduct1.id;
     radioButton2.value = randomProduct2.id;
     radioButton3.value = randomProduct3.id;
+
     while (randomProduct1 === randomProduct2) {
         randomProduct2 = chooseRandomProduct(productsArray);
     }
     while (randomProduct3 === randomProduct2 || randomProduct3 === randomProduct1) {
         randomProduct3 = chooseRandomProduct(productsArray);
     }
+    
     image1.src = randomProduct1.image;
     image2.src = randomProduct2.image;
     image3.src = randomProduct3.image;
