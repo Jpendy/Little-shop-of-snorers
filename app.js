@@ -18,11 +18,16 @@ let gameCounter = 25;
 renderProducts();
 
 let answersArray = [];
-// let allTimeAnswersArray = localStorage.getItem('allTimeAnswersArrayKey');
-// if (!allTimeAnswersArray) {
-//     allTimeAnswersArray = [];
-// }
-let allTimeAnswersArray = [];
+let allTimeAnswersArray;
+
+let allTimeArrayStorage = localStorage.getItem('allTimeAnswersArrayKey');
+if (allTimeArrayStorage) {
+    let parsed_AllTimeArrayStorage = JSON.parse(allTimeArrayStorage);
+
+    allTimeAnswersArray = parsed_AllTimeArrayStorage;
+}
+else { allTimeAnswersArray = []; }
+
 
 
 submitButton.addEventListener('click', () => {

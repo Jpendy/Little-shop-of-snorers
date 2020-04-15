@@ -87,3 +87,7 @@ button:hover {
 #submit-button:hover {
     background: lawngreen;
 }
+
+#myChart {
+    font-size: 25px;
+}
