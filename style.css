@@ -1,0 +1,93 @@
+body {
+    background: lightskyblue;
+}
+
+section { 
+    margin: auto;
+    text-align: center;
+
+}
+
+img {
+    margin: 50px;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    box-shadow: 1px 2px 3px 2px;
+}
+
+input {
+    display: none;
+}
+
+input[type=radio]:checked + img {
+    border: solid 4px blue;
+    box-shadow: 2px 2px 10px 2px;
+}
+
+
+.answers-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+ul {
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 700px 700px;
+
+}
+
+li {
+    padding: 40px;
+}
+
+li h1 {
+    font-size: 30px;
+    font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.header-class {
+    margin: auto;
+    text-align: center;
+    padding-top: 40px;
+    font-size: 50px;
+}
+
+
+#button-div {
+    margin: auto;
+    text-align: center;
+    margin-bottom: 200px;
+}
+
+button {
+    height: 60px;
+    width: 200px;
+    border-radius: 30px;
+    border: 2px solid black;
+    box-shadow: 1px 2px 10px 2px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 0.7s;
+}
+
+button:hover {
+    background: lawngreen;
+    box-shadow: 2px 4px 13px 2px;
+}
+
+#submit-button {
+    margin: auto;
+    text-align: center;
+    transition: 0.7s;
+}
+
+#submit-button:hover {
+    background: lawngreen;
+}
+
+#myChart {
+    font-size: 25px;
+}
