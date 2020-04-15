@@ -18,7 +18,11 @@ let gameCounter = 25;
 renderProducts();
 
 let answersArray = [];
-const allTimeAnswersArray = [];
+// let allTimeAnswersArray = localStorage.getItem('allTimeAnswersArrayKey');
+// if (!allTimeAnswersArray) {
+//     allTimeAnswersArray = [];
+// }
+let allTimeAnswersArray = [];
 
 
 submitButton.addEventListener('click', () => {
@@ -42,6 +46,10 @@ submitButton.addEventListener('click', () => {
 
     const stringifiedAnswersArray = JSON.stringify(answersArray);
     localStorage.setItem('answersArrayKey', stringifiedAnswersArray);
+
+
+    // let allTimeArray = localStorage.getItem('allTimeAnswersKey');
+    // let parsed_allTimeArray = JSON.parsed(allTimeArray);
 
     const strinifiedAllTimeAnswersArray = JSON.stringify(allTimeAnswersArray);
     localStorage.setItem('allTimeAnswersArrayKey', strinifiedAllTimeAnswersArray); 
@@ -71,7 +79,7 @@ function renderProducts() {
     while (randomProduct3 === randomProduct2 || randomProduct3 === randomProduct1) {
         randomProduct3 = chooseRandomProduct(productsArray);
     }
-    
+
     image1.src = randomProduct1.image;
     image2.src = randomProduct2.image;
     image3.src = randomProduct3.image;
